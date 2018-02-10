@@ -35,11 +35,9 @@ class InMemoryReadWriter(input: String) extends ReadWriter {
   override def readChar(): IO[Try[Option[Char]]] = IO { Try {
     in match {
       case Nil =>
-        println("Reading None")
         None
       case next :: rest =>
         in = rest
-        println("Reading " + next)
         Some(next)
     }
   }}
